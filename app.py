@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from src.data_loader import get_matchups_for_week, get_default_season_week
 from src.player_data import get_players_for_matchups  # you'll add this file below
 
 st.set_page_config(page_title="NFL Anytime TD Dashboard", layout="wide")
