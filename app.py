@@ -14,7 +14,7 @@ season_type = st.sidebar.selectbox("Season Type", options=["reg", "post", "pre"]
 pos_filter = st.sidebar.selectbox("Position filter", options=["All", "RB", "WR", "TE", "QB"])
 
 # ---- Load matchups ----
-matchups = get_matchups_for_week(season=season, week=week, season_type=season_type)
+matchups = get_matchups_for_week(season=season, week=week, season_type="reg")
 
 if not matchups:
     st.warning("No games found for that week/season.")
