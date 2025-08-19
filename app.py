@@ -23,7 +23,7 @@ with st.sidebar:
     )
 
 # -------------- Load slate + players --------------
-matchups = get_matchups_for_week(season=season, week=week)
+matchups = get_matchups_for_week(season=season, week=week, season_type=season_type)
 if not matchups:
     st.warning("No regular-season games found for that week/season.")
     st.stop()
