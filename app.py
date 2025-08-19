@@ -10,7 +10,7 @@ from src.player_data import get_players_for_matchups  # you'll add this file bel
 st.set_page_config(page_title="NFL Anytime TD Dashboard", layout="wide")
 
 # -------------- Sidebar controls --------------
-default_season, default_week = get_default_season_week()
+default_season, default_week, default_type = 2025, 1, "reg"
 with st.sidebar:
     st.title("Anytime TD")
     season = st.number_input("Season", min_value=2018, max_value=2100, value=default_season, step=1)
