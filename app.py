@@ -15,6 +15,7 @@ with st.sidebar:
     st.title("Anytime TD")
     season = st.number_input("Season", min_value=2018, max_value=2100, value=default_season, step=1)
     week = st.number_input("Week (REG)", min_value=1, max_value=18, value=default_week, step=1)
+    season_type = st.sidebar.selectbox("Season Type", options=["reg", "post", "pre"], index=["reg", "post", "pre"].index(default_type))
     pos_filter = st.selectbox("Position filter", options=["All", "RB", "WR", "TE", "QB"])
     selected_gid = st.selectbox(
         "Jump to matchup",
