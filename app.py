@@ -20,6 +20,7 @@ if not matchups:
     st.warning("No games found for that week/season.")
     st.stop()
 
+# ---- Jump to matchup dropdown ----
 selected_gid = st.sidebar.selectbox(
     "🔍 Jump to matchup",
     options=["All Games"] + list(matchups.keys()),
@@ -51,7 +52,13 @@ for gid, info in matchups.items():
         continue
 
     game_df["Projected ATD"] = (game_df["atd_prob"] * 100).round(1)
-    game_df.rename(columns={"player_name": "Player", "team": "Team", "position": "Position", "opponent": "Opponent", "logo": "Logo"}, inplace=True)
+    game_df.rename(columns={
+        "player_name": "Player",
+        "team": "Team",
+        "position": "Position",
+        "opponent": "Opponent",
+        "logo": "Logo"
+    }, inplace=True)
 
     show_cols = ["Logo", "Player", "Team", "Position", "Opponent", "Projected ATD"]
     game_df = game_df.sort_values("Projected ATD", ascending=False)
