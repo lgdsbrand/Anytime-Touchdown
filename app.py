@@ -3,6 +3,9 @@ import pandas as pd
 from src.data_loader import get_matchups_for_week
 from src.player_data import get_players_for_matchups
 
+from refresh_trigger import trigger_refresh
+trigger_refresh()
+
 st.set_page_config(page_title="NFL Anytime TD Dashboard", layout="wide")
 
 # ---- Sidebar controls ----
