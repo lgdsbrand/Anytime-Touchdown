@@ -71,3 +71,27 @@ def get_default_season_week() -> tuple[int, int, str]:
     week = 1
     season_type = "reg"  # Default to regular season
     return season, week, season_type
+
+import os
+
+def load_cached_matchups(season: int, week: int, season_type: str = "reg") -> "OrderedDict[str, dict]":
+    path = f"data/week{week}_{season_type}_{season}_matchups.csv"
+    if not os.path.exists(path):
+        print(f"[!] Cached matchups not found: {path}")
+        return {}
+
+    df = pd.read_csv(path)
+    out = OrderedDict()
+    for _, row in df.iterrows():
+        out[row["game_id"]] = {
+            "label": row["label"],
+            "home": row["home"],
+            "away": row["away"],
+            "kickoff_et": row["kickoff_et"],
+            "network": row["network"],
+            "season": row["season"],
+            "week": row["week"],
+            "season_type": row["season_type"],
+            "game_id": row["game_id"]
+        }
+    return out
